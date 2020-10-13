@@ -1,0 +1,37 @@
+<div class="container-fluid bg">
+    <nav class='navbar navbar-expand navbar-dark bg-dark'>
+        <a class='navbar-brand' style="font-weight: bolder;color: white" >{{pageTitle}}</a>
+      </nav>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12 ">
+           
+            <form class="card form-conatiner" [formGroup]="CustomerForm" (submit)="onSubmit()" >
+               <h1>Customer Order Details</h1>
+                <br><br>
+              
+               <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="firstName" name="firstName" class="form-control" id="firstName" />
+              </div>
+              <div class="form-group ">
+                  <label for="lastName">Last Name</label>
+                  <input type="lastName" class="form-control" formControlName="lastName" placeholder="lastName" name="lastName" class="form-control" id="lastName" />
+              </div>
+  
+             <app-order [parentFrom]="CustomerForm.get('order')"></app-order>
+             <app-product [parentFrom]="CustomerForm.get('shipping')"></app-product>
+
+             <div class=" form-group" >
+               <button type="submit" class="btn btn-info btn-block" >Save</button>
+             </div>
+              </form>
+              <pre>
+                  {{CustomerForm.value | json}}
+              </pre>
+              
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+  </div>
+  
